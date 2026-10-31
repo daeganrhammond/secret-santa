@@ -1,0 +1,6 @@
+.env
+data/
+node_modules/
+*.sqlite*
+*.log
+preview*.png

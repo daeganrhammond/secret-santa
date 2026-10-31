@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173d30">
+  <meta name="description" content="Six secret Santas. Two little surprises each. A festive gift exchange with a little extra magic.">
+  <title>Secret Santa · A little extra magic</title>
+  <link rel="stylesheet" href="./style.css"><script src="./config.js" defer></script><script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="snow" aria-hidden="true">✦ <span>✧</span> · <span>✦</span> · <span>✧</span> ✦</div>
+  <header><a class="brand" href="./" aria-label="Secret Santa home"><span class="brand-star">✳</span> secret santa<span class="brand-dot">.</span></a><a class="organizer-link" href="./?organizer=1">Organizer <span aria-hidden="true">↗</span></a></header>
+  <main>
+    <section class="intro"><div class="eyebrow"><span></span> A VERY MERRY GIFT EXCHANGE</div><h1>A little secret.<br>Twice the <em>magic.</em></h1><p>Six people. Two gifts each.<br>A few well-kept secrets and a whole lot of joy.</p>
+      <div class="gift-scene" aria-hidden="true"><span class="spark s1">✧</span><span class="spark s2">✦</span><span class="spark s3">✧</span><div class="gift gift-small"><i></i><b></b><span></span></div><div class="gift gift-large"><i></i><b></b><span></span></div><div class="gift gift-round"><i></i><b></b><span></span></div><div class="scene-floor"></div><div class="scene-caption">good things come in twos</div></div>
+    </section>
+    <section class="card" id="join-card" aria-labelledby="card-title">
+      <div class="card-top"><span class="tiny-star">✦</span><span>THE NICE LIST</span><span class="year">2026</span></div>
+      <div id="signup-view"><h2 id="card-title">Count me in.</h2><p class="card-description">Leave your name and email. We’ll keep the names a secret until it’s time.</p>
+        <form id="join-form"><label for="name">Your name</label><input id="name" name="name" placeholder="The name everyone knows you by" autocomplete="name" required maxlength="60">
+          <label for="email">Email address</label><input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required maxlength="254">
+          <p class="field-note">Your two names will arrive here. Check your spelling!</p>
+          <label class="consent"><input type="checkbox" required><span>I’m joining this gift exchange and agree to receive my assignment by email.</span></label>
+          <button class="primary" type="submit">Put me on the nice list <span>↗</span></button>
+        </form>
+        <p class="privacy"><span aria-hidden="true">♧</span> Your email is private. Your surprises are, too.</p>
+      </div>
+      <div id="joined-view" hidden><div class="success-seal" aria-hidden="true">✓</div><h2>You’re on the list!</h2><p class="card-description" id="joined-description">Now for the fun part: waiting for a little Christmas magic.</p><div class="note-box">Once everyone joins, the organizer will draw the names. Your two recipients will arrive by email.</div><p class="privacy">Check your spam folder after the draw, too.</p></div>
+      <div id="closed-view" hidden><h2 id="closed-title">The list is full.</h2><p class="card-description" id="closed-description">All six places are taken. If you need help with your signup, contact the organizer.</p></div>
+      <div class="progress-block"><div class="progress-label"><span id="progress-text">Checking the nice list…</span><span id="count">— / 6</span></div><div class="slots" id="slots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    </section>
+    <section class="card organizer-card" id="organizer-card" hidden aria-labelledby="organizer-title"><div class="card-top"><span class="tiny-star">✦</span><span>BEHIND THE MAGIC</span></div><h2 id="organizer-title">Santa’s workshop.</h2><div id="login-view"><p class="card-description">The organizer has the keys to the stocking.</p><form id="login-form"><label for="password">Organizer password</label><input type="password" id="password" autocomplete="current-password" required><button class="primary" type="submit">Open the workshop <span>↗</span></button></form></div>
+      <div id="admin-view" hidden><p class="card-description" id="admin-description">Gather all six people, then make a little magic.</p><div id="people-list"></div><div class="note-box" id="email-warning" hidden>Email sending needs to be connected before you can draw. You can collect signups in the meantime.</div><button id="draw-button" class="stocking-button" disabled><svg viewBox="0 0 170 190" aria-hidden="true"><path d="M68 37h66v73c0 24-13 37-34 49L62 179c-19 10-43 3-48-15-5-16 4-27 22-38l32-20Z" fill="currentColor"/><path d="M61 24q0-8 8-8h64q8 0 8 8v31H61Z" fill="#f5efdf"/><path d="m69 68 12 12 12-12 12 12 12-12 12 12" fill="none" stroke="#f5efdf" stroke-width="4"/><path d="M18 142q22-4 34 22M111 129q-11-13-11-31h34" fill="none" stroke="#e79b89" stroke-width="12"/><path d="m100 89 3 8 8 1-6 6 1 9-6-4-7 4 2-9-6-6 8-1Z" fill="#f0cf81"/></svg><span id="draw-label">Draw & email the names</span><small id="draw-hint">Waiting for all six Santas</small></button><button class="secondary" id="retry-button" hidden>Retry failed emails</button><p class="field-note" id="delivery-note" hidden>“Sent” means accepted by the email provider. If a send needs review, check the provider’s records before resending.</p><div class="admin-actions"><button class="text-button" id="refresh-button">Refresh list</button><button class="text-button" id="logout-button">Sign out</button></div></div>
+    </section>
+    <p id="message" role="status" aria-live="polite" hidden></p>
+  </main>
+  <section class="how" aria-label="How the exchange works"><div><span class="step">01</span><h3>Join the list</h3><p>Your name, your email.<br>That’s all the elves need.</p></div><div><span class="step">02</span><h3>Get two names</h3><p>A secret email reveals<br>your two lucky people.</p></div><div><span class="step">03</span><h3>Give a little joy</h3><p>Give two gifts. Get two gifts.<br>Everyone gets the magic.</p></div></section>
+  <footer><span>Made for giving. And keeping secrets.</span><span>six santas · twelve surprises <span aria-hidden="true">✦</span></span></footer>
+</body></html>
