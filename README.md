@@ -13,7 +13,7 @@ A festive six-person gift exchange. Each person gives to two different people, n
 
 1. Open [Google Apps Script](https://script.google.com/home/start), create a project named **Secret Santa**, and put `google-apps-script/Code.js` into the editor’s `Code.gs` file.
 2. In **Project Settings**, enable **Show appsscript.json manifest file in editor**. Replace that file with `google-apps-script/appsscript.json`.
-3. In **Project Settings → Script properties**, add `ADMIN_PASSWORD` with a unique password of at least 16 characters. Keep it private; it never belongs in GitHub or `public/config.js`.
+3. In **Project Settings → Script properties**, add `ADMIN_PASSWORD` with a password of at least 10 characters. Keep it private; it never belongs in GitHub or `public/config.js`.
 4. Choose **Deploy → New deployment → Web app**. Set **Execute as: Me** and **Who has access: Anyone** so the six participants do not need Google accounts. Complete Google’s authorization yourself after reviewing the requested email-sending permission. If a Google warning blocks this, stop and review the project and account configuration rather than bypassing a browser security interstitial.
 5. Copy the deployed URL ending in `/exec` into `public/config.js` as `apiUrl`.
 6. If you edit the backend later, update its existing deployment to a new version; preserve its deployment URL and Script Properties.
