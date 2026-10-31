@@ -73,3 +73,10 @@ test('removed participants can rejoin with corrected email details',()=>{
   assert.equal(b.call({action:'receipt',receipt:signup.receipt}).data.joined,false);
   assert.equal(b.call({action:'join',name:'Santa',email:'correct@example.com'}).ok,true);
 });
+test('organizer login accepts a ten-character password',()=>{
+  const b=backend();b.properties.set('ADMIN_PASSWORD','samplepass');
+  assert.equal(b.call({action:'login',password:'samplepass'}).ok,true);
+  assert.equal(b.call({action:'login',password:'incorrect'}).status,401);
+  b.properties.set('ADMIN_PASSWORD','short');
+  assert.equal(b.call({action:'login',password:'short'}).status,503);
+});
