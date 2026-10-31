@@ -1,6 +1,6 @@
 /* Secret Santa backend. Deploy as a Web App: execute as Me, access Anyone.
  * This script needs permission to SEND email, not to read your inbox.
- * Set ADMIN_PASSWORD in Project Settings > Script properties (16+ characters).
+ * Set ADMIN_PASSWORD in Project Settings > Script properties (10+ characters).
  * Keep this source and the organizer password separate from participant data.
  */
 function doPost(e) {
@@ -50,7 +50,7 @@ function santaHandle_(input) {
       if (attempts >= 30) throw santaError_(429, 'Too many login attempts. Try again in 15 minutes.');
       cache.put('loginAttempts', String(attempts + 1), 900);
       var password = PropertiesService.getScriptProperties().getProperty('ADMIN_PASSWORD');
-      if (!password || password.length < 16) throw santaError_(503, 'The organizer password has not been configured.');
+      if (!password || password.length < 10) throw santaError_(503, 'The organizer password has not been configured.');
       if (typeof input.password !== 'string' || input.password.length > 512 || santaHash_(input.password) !== santaHash_(password)) throw santaError_(401, 'That organizer password is incorrect.');
       var token = santaToken_();
       cache.put('session:' + santaHash_(token), 'yes', 21600);
